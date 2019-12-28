@@ -1,7 +1,6 @@
 .gradle/
 .idea/
 build/
-gradle/
 
 
 src/main/java/com/nerydlg/daily/coding/problems/Solution_3.java
