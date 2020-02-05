@@ -74,4 +74,10 @@ class FindWaysToGetAWordTest {
         String input = "101";
         assertEquals(1, subject.howManyWaysToGetAWord(input));
     }
+
+    @Test
+    void whenIsNotPossibleDecode_3() {
+        String input = "01";
+        assertEquals(0, subject.howManyWaysToGetAWord(input));
+    }
 }
