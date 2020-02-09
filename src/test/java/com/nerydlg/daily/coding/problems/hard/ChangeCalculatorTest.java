@@ -30,6 +30,14 @@ class ChangeCalculatorTest {
     }
 
     @Test
+    void canGiveChange3() {
+        ChangeCalculator subject = new ChangeCalculator();
+        int[] coins = new int[]{5,2,1};
+        int result = subject.giveChange(11, coins, 0, 0);
+        assertEquals(3, result);
+    }
+
+    @Test
     void cantGiveChange() {
         ChangeCalculator subject = new ChangeCalculator();
         ChangeCalculator.Change result = subject.giveChangeFrom(0L);

@@ -33,7 +33,7 @@ public class DuplicateTrees {
         TreeNode current = null;
         String strVal = null;
         while(!queue.isEmpty()) {
-            current = queue.pop();
+            current = queue.pollFirst();
             strVal = treeToStringOneLevel(current);
             if(map.containsKey(strVal)) {
                 result.add(strVal);
@@ -53,9 +53,8 @@ public class DuplicateTrees {
     }
 
     public String treeToStringOneLevel(TreeNode root) {
-        if(root == null) return "_";
-        return ((root.left == null)? "_" : root.left.val+"") +
-                root.val +
-                ((root.right == null)? "_" : root.right.val+"");
+        if(root == null) return "#";
+        return  root.val + ","+treeToStringOneLevel(root.left) +","+
+                treeToStringOneLevel(root.right);
     }
 }

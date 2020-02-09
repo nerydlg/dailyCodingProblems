@@ -37,6 +37,28 @@ public class ChangeCalculator {
         return currentChange;
     }
 
+    public int giveChange(long amount, int[] coinsAndBills, int currentValue, int coins) {
+        if(amount < 0 || coinsAndBills == null || currentValue > coinsAndBills.length) return -1;
+        long updatedAmount =  amount - coinsAndBills[currentValue];
+        int newCoins = 0;
+        if(updatedAmount == 0){
+            return coins+1;
+        } else if(updatedAmount > 0) {
+            if(updatedAmount >= coinsAndBills[currentValue]) {
+                newCoins = giveChange(updatedAmount, coinsAndBills, currentValue, coins+1);
+            } else {
+                newCoins = giveChange(updatedAmount, coinsAndBills, currentValue+1, coins+1);
+                if(newCoins == -1) {
+                    newCoins = giveChange(amount, coinsAndBills, currentValue+1, coins);
+                }
+            }
+        } else {
+            newCoins = giveChange(amount, coinsAndBills, currentValue+1, coins);
+        }
+
+        return newCoins;
+    }
+
     private Change updateChange(Change change, int currentValue) {
         if(change == null) return null;
         Change newChange = new Change();
