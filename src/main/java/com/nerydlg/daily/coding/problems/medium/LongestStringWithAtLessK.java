@@ -1,6 +1,7 @@
 package com.nerydlg.daily.coding.problems.medium;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -29,6 +30,8 @@ public class LongestStringWithAtLessK {
                 map.put(ch, 1);
             }
         }
+
+        Iterator<Map.Entry<Character, Integer>> iterator = map.entrySet().iterator();
         return map.entrySet().stream()
                 .filter(entry -> entry.getValue().compareTo(k) >= 0)
                 .collect(Collectors.toMap(x -> x.getKey(), x -> x.getValue()));

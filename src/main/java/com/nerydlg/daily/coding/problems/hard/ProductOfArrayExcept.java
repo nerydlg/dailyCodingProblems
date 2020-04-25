@@ -19,7 +19,7 @@ public class ProductOfArrayExcept{
         for (int i = 2; i < input.length; i++) { // { 12, 24, 8, 6}  length = 3
             result[i] = result[i - 1] * input[i - 1];
         }
-        Arrays.stream(result).forEach(op -> System.out.println(op));
+        //Arrays.stream(result).forEach(op -> System.out.println(op));
 
         int beforeLast = input[input.length - 1]; // beforeLast = 4
         result[input.length - 2] = result[input.length - 2] * beforeLast;
@@ -29,7 +29,7 @@ public class ProductOfArrayExcept{
             result[j] = beforeLast * result[j];
             j--;
         }
-        Arrays.stream(result).forEach(op -> System.out.println(op));
+        //Arrays.stream(result).forEach(op -> System.out.println(op));
         return result;
     }
 }
