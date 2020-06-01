@@ -9,3 +9,11 @@ src/main/java/com/nerydlg/daily/coding/problems/Solution_3.java
 
 *.iml
 
+src/main/java/com/nerydlg/daily/coding/problems/easy/SquareSum.java
+src/test/java/com/nerydlg/daily/coding/problems/easy/SquareSumTest.java
+src/main/java/com/nerydlg/daily/coding/problems/hard/ContainsWord.java
+src/test/java/com/nerydlg/daily/coding/problems/hard/ContainsWordTest.java
+src/main/java/com/nerydlg/daily/coding/problems/medium/MinimumDelta.java
+src/test/java/com/nerydlg/daily/coding/problems/medium/MinimumDeltaTest.java
+
+

@@ -1,39 +1,39 @@
 package com.nerydlg.daily.coding.problems.medium;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.stream.Collectors;
-
 public class LongestStringWithAtLessK {
 
     public int longestSubstring(String s, int k) {
-        Map<Character, Integer> map = mapAllLetters(s, k);
-        if(map.isEmpty()) return 0;
-        int maxLength = 0;
-        for(int i=0; i < s.length(); i++) {
-            Character ch = s.charAt(i);
-            if(map.containsKey(ch)) {
-                maxLength++;
-            }
-        }
-        return maxLength;
-    }
-
-    public Map<Character, Integer> mapAllLetters(String s, int k) {
-        Map<Character, Integer> map = new HashMap();
-        for(int i = 0; i < s.length(); i++) {
-            Character ch = s.charAt(i);
-            if(map.containsKey(ch)) {
-                map.put(ch, map.get(ch)+1);
-            } else {
-                map.put(ch, 1);
+        int n = s.length();
+        if( k == 1) return n;
+        if( k > n || n == 0) return 0;
+        int count = 0;
+        int[] alpha = new int[26]; // to hold all letters a = 0, z = 25;
+        for(int i = 0; i < n; i ++) {
+            char c = s.charAt(i);
+            int lastCount = ++alpha[c - 'a']; // increment the letter count
+            if(lastCount == 1) {
+                count++;
+            } else if(lastCount == k){
+                count--;
             }
         }
 
-        Iterator<Map.Entry<Character, Integer>> iterator = map.entrySet().iterator();
-        return map.entrySet().stream()
-                .filter(entry -> entry.getValue().compareTo(k) >= 0)
-                .collect(Collectors.toMap(x -> x.getKey(), x -> x.getValue()));
+        if(count == 0) return n;
+
+        int max = 0;
+        int j = 0, i = 0;
+        while(j < n) {
+            char ch = s.charAt(j);
+            if(alpha[ch - 'a'] < k) {
+                if(i != j) {
+                    max = Math.max(max, longestSubstring(s.substring(i, j), k));
+                }
+                i = j + 1;
+            }
+            j++;
+        }
+        if(i != j)
+            max = Math.max(max, longestSubstring(s.substring(i, j), k));
+        return max;
     }
 }

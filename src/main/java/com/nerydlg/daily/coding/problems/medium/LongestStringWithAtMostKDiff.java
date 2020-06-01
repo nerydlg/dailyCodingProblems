@@ -18,7 +18,8 @@ public class LongestStringWithAtMostKDiff {
         Map<Character, Integer> map = new HashMap<>();
         int i=0, j=0;
         int max = 0;
-        while(i < s.length()) {
+        int n = s.length();
+        while(i < n) {
             Character ch = s.charAt(j);
             if(!map.containsKey(ch)) {
                 map.put(ch, 1);
@@ -30,7 +31,7 @@ public class LongestStringWithAtMostKDiff {
                 j=i;
             } else {
                 j++;
-                if(j == s.length()) {
+                if(j == n) {
                     max = Math.max(max, j - i);
                     i++;
                     j=i;
