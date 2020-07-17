@@ -3,8 +3,6 @@ package com.nerydlg.daily.coding.problems;
 /*
 Good morning! Here's your coding interview problem for today.
 
-This problem was asked by Google.
-
 Given the root of a binary search tree, and a target K, return two nodes in the tree whose sum equals K.
 
 For example, given the following tree and K of 20
@@ -62,7 +60,7 @@ public class Solution_453 {
                     //System.out.println("aux2 move left");
                     aux2 = aux2.left;
                 } else if(aux2.val < newK) {
-                    //System.out.println("aux2 move right");
+                    //System.out.println("aux2 move r/ight");
                     aux2 = aux2.right;
                 } else{
                     //System.out.println("found!");
