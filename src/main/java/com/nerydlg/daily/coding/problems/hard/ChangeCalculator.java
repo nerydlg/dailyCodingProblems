@@ -1,7 +1,5 @@
 package com.nerydlg.daily.coding.problems.hard;
 
-import java.util.List;
-
 public class ChangeCalculator {
 
     class Change {
@@ -9,6 +7,7 @@ public class ChangeCalculator {
         long billOf5 = 0;
         long billOf10 = 0;
     }
+
 
     public Change giveChangeFrom(long amount) {
         int[] coinsAndBills = new int[]{10, 5, 2};
