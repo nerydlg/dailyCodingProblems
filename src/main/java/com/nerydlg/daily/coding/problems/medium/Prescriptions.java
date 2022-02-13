@@ -27,7 +27,7 @@ public class Prescriptions {
   private int[] days;
 
   public int finMaxMedicationsAtAnyPoint(List<Medications> medicationsList) {
-    // find start day
+    // find last day
     int latestDay = findLatestDay(medicationsList);
         // create an array of size end date
     days = new int[latestDay];
@@ -47,16 +47,9 @@ public class Prescriptions {
     }
   }
 
-
   private int findLatestDay(List<Medications> medicationsList) {
     return medicationsList.stream()
                .map(medication -> medication.endDate)
                .reduce(Integer.MIN_VALUE, (max, curr) -> max < curr ? curr : max);
-  }
-
-  private int findFirstDay(List<Medications> medicationsList) {
-    return medicationsList.stream()
-        .map(medication -> medication.startDate)
-        .reduce(Integer.MAX_VALUE, (min, curr) -> min > curr ? curr : min);
   }
 }
