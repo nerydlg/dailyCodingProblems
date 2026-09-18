@@ -1,7 +1,5 @@
 package com.nerydlg.daily.coding.problems.easy;
 
-import com.nerydlg.daily.coding.problems.Solution_3;
-
 public class MoveZeros {
 
 

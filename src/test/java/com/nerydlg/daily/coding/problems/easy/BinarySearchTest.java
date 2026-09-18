@@ -17,7 +17,17 @@ class BinarySearchTest {
     }
 
     @Test
-    void numberExists_2() {
+    void numberExistsInTheMiddle() {
+        BinarySearch subject = new BinarySearch();
+        int[] input = new int[]{-9, 14, 37, 102};
+        int k = 14;
+        assertTrue(subject.exists(input, k));
+        assertTrue(subject.exists(input, -9));
+        assertFalse(subject.exists(input, 36));
+    }
+
+    @Test
+    void numberNotExists() {
         BinarySearch subject = new BinarySearch();
         int[] input = new int[]{1, 2, 3, 4, 6};
         int k = 5;
